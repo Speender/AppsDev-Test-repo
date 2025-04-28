@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Update="PatientDetails.axaml.cs">
+        <DependentUpon>PatientDetails.axaml</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Avalonia" Version="11.3.0-rc1" />
+      <PackageReference Include="Avalonia.ReactiveUI" Version="11.3.0-rc1" />
+      <PackageReference Include="ReactiveUI" Version="20.2.45" />
+    </ItemGroup>
+
+</Project>

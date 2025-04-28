@@ -1,0 +1,8 @@
+C:\Users\Lenovo Yoga\RiderProjects\HospitalApp\AppsDev-Test-repo\Moncayo\Patient\Patient\obj\Debug\net9.0\Patient.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo Yoga\RiderProjects\HospitalApp\AppsDev-Test-repo\Moncayo\Patient\Patient\obj\Debug\net9.0\Patient.AssemblyInfoInputs.cache
+C:\Users\Lenovo Yoga\RiderProjects\HospitalApp\AppsDev-Test-repo\Moncayo\Patient\Patient\obj\Debug\net9.0\Patient.AssemblyInfo.cs
+C:\Users\Lenovo Yoga\RiderProjects\HospitalApp\AppsDev-Test-repo\Moncayo\Patient\Patient\obj\Debug\net9.0\Patient.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo Yoga\RiderProjects\HospitalApp\AppsDev-Test-repo\Moncayo\Patient\Patient\obj\Debug\net9.0\Patient.sourcelink.json
+C:\Users\Lenovo Yoga\RiderProjects\HospitalApp\AppsDev-Test-repo\Moncayo\Patient\Patient\obj\Debug\net9.0\Patient.csproj.AssemblyReference.cache
+C:\Users\Lenovo Yoga\RiderProjects\HospitalApp\AppsDev-Test-repo\Moncayo\Patient\Patient\obj\Debug\net9.0\Avalonia\Resources.Inputs.cache
+C:\Users\Lenovo Yoga\RiderProjects\HospitalApp\AppsDev-Test-repo\Moncayo\Patient\Patient\obj\Debug\net9.0\Avalonia\resources
