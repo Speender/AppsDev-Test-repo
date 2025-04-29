@@ -1,0 +1,218 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="HospitalApp.Views.PatientPageView">
+
+  <UserControl.Styles>
+    <Style Selector="Border.card">
+      <Setter Property="Background" Value="White"/>
+      <Setter Property="BorderBrush" Value="#DCE4EC"/>
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="CornerRadius" Value="12"/>
+      <Setter Property="Padding" Value="20"/>
+    </Style>
+
+    <Style Selector="Border.info-panel">
+      <Setter Property="Background" Value="#F8FAFC"/>
+      <Setter Property="BorderBrush" Value="#DCE4EC"/>
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="CornerRadius" Value="8"/>
+      <Setter Property="Padding" Value="12"/>
+    </Style>
+
+    <Style Selector="TextBlock.header">
+      <Setter Property="FontSize" Value="18"/>
+      <Setter Property="FontWeight" Value="SemiBold"/>
+      <Setter Property="Margin" Value="0,0,0,10"/>
+    </Style>
+
+    <Style Selector="TextBlock.info">
+      <Setter Property="FontSize" Value="14"/>
+      <Setter Property="Foreground" Value="#2c3e50"/>
+    </Style>
+
+    <Style Selector="Button.primary">
+      <Setter Property="Width" Value="140"/>
+      <Setter Property="Height" Value="40"/>
+      <Setter Property="Background" Value="#4169e1"/>
+      <Setter Property="Foreground" Value="White"/>
+      <Setter Property="FontSize" Value="14"/>
+      <Setter Property="FontWeight" Value="SemiBold"/>
+      <Setter Property="BorderThickness" Value="0"/>
+      <Setter Property="CornerRadius" Value="8"/>
+    </Style>
+
+    <Style Selector="Button.success">
+      <Setter Property="Width" Value="140"/>
+      <Setter Property="Height" Value="40"/>
+      <Setter Property="Background" Value="#28A745"/>
+      <Setter Property="Foreground" Value="White"/>
+      <Setter Property="BorderThickness" Value="0"/>
+      <Setter Property="CornerRadius" Value="8"/>
+    </Style>
+
+    <Style Selector="Button.danger">
+      <Setter Property="Width" Value="140"/>
+      <Setter Property="Height" Value="40"/>
+      <Setter Property="Background" Value="#860111"/>
+      <Setter Property="Foreground" Value="White"/>
+      <Setter Property="BorderThickness" Value="0"/>
+      <Setter Property="CornerRadius" Value="8"/>
+    </Style>
+  </UserControl.Styles>
+
+  <DockPanel LastChildFill="True">
+    <Grid Margin="40,20,30,10" DockPanel.Dock="Top">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="Auto" />
+      </Grid.ColumnDefinitions>
+
+      <TextBlock Text="Patient Dashboard"
+                 FontSize="28"
+                 FontWeight="Bold"
+                 Foreground="#3e8dc0"
+                 VerticalAlignment="Center" />
+
+      <Button Content="Add Patient"
+              Classes="primary"
+              HorizontalAlignment="Right" 
+              VerticalAlignment="Center"
+              Grid.Column="1" />
+    </Grid>
+
+    <Grid Margin="30,0,30,30">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="2.5*" />
+        <ColumnDefinition Width="3.5*" />
+      </Grid.ColumnDefinitions>
+
+      <!-- Patient List -->
+      <Border Classes="card" Margin="0,0,20,0">
+        <StackPanel Spacing="20">
+          <TextBlock Text="Patient List" 
+                     FontSize="20" 
+                     FontWeight="Bold" 
+                     Foreground="Black" 
+                     HorizontalAlignment="Center" />
+
+          <Border Background="#EFF3F7" 
+                  CornerRadius="12" 
+                  Padding="8" 
+                  BorderBrush="#DCE4EC" 
+                  BorderThickness="1">
+            <DockPanel VerticalAlignment="Center">
+              <TextBox Watermark="Search patient..." 
+                       Background="Transparent" 
+                       BorderThickness="0" 
+                       FontSize="14"
+                       VerticalContentAlignment="Center"
+                       Margin="5,0"
+                       Text="Search..." />
+            </DockPanel>
+          </Border>
+
+          <ListBox ScrollViewer.VerticalScrollBarVisibility="Auto"
+                   Height="300">
+            <ListBoxItem>
+              <Border Background="#EFF3F7" 
+                      CornerRadius="8" 
+                      Padding="12" 
+                      Margin="0,4">
+                <StackPanel>
+                  <TextBlock Text="John Doe" 
+                             FontWeight="Bold" 
+                             FontSize="14" />
+                  <TextBlock Text="123-456-7890" 
+                             FontSize="12" 
+                             Foreground="#4A4A4A" />
+                </StackPanel>
+              </Border>
+            </ListBoxItem>
+          </ListBox>
+        </StackPanel>
+      </Border>
+
+      <!-- Patient Details -->
+      <Border Grid.Column="1" Classes="card">
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+          </Grid.RowDefinitions>
+
+          <StackPanel Grid.Row="0" Margin="0,0,0,20">
+            <TextBlock Text="Personal Info" Classes="header" />
+            <Border Classes="info-panel">
+              <StackPanel Orientation="Horizontal" Spacing="20">
+                <Ellipse Width="80" Height="80" Fill="#CED9E0" />
+                <StackPanel>
+                  <TextBlock Classes="info">
+                    <Run Text="Name: " FontWeight="SemiBold" />
+                    <TextBox Text="John Doe" BorderThickness="0" Background="Transparent" />
+                  </TextBlock>
+                  <TextBlock Classes="info">
+                    <Run Text="Age: " FontWeight="SemiBold" />
+                    <TextBlock Text="30" />
+                  </TextBlock>
+                  <TextBlock Classes="info">
+                    <Run Text="Sex: " FontWeight="SemiBold" />
+                    <TextBox Text="Male" BorderThickness="0" Background="Transparent" />
+                  </TextBlock>
+                </StackPanel>
+                <StackPanel>
+                  <TextBlock Classes="info">
+                    <Run Text="Birthday: " FontWeight="SemiBold" />
+                    <DatePicker SelectedDate="1993-05-15" />
+                  </TextBlock>
+                  <TextBlock Classes="info">
+                    <Run Text="Contact: " FontWeight="SemiBold" />
+                    <TextBox Text="123-456-7890" BorderThickness="0" Background="Transparent" />
+                  </TextBlock>
+                </StackPanel>
+              </StackPanel>
+            </Border>
+          </StackPanel>
+
+          <StackPanel Grid.Row="1" Margin="0,0,0,20">
+            <TextBlock Text="Medical Info" Classes="header" />
+            <Border Classes="info-panel">
+              <StackPanel Spacing="5">
+                <TextBlock Classes="info">
+                  <Run Text="Patient ID: " FontWeight="SemiBold" />
+                  <TextBlock Text="P12345" />
+                </TextBlock>
+                <TextBlock Classes="info">
+                  <Run Text="Blood Type: " FontWeight="SemiBold" />
+                  <TextBox Text="O+" BorderThickness="0" Background="Transparent" />
+                </TextBlock>
+                <TextBlock Classes="info">
+                  <Run Text="Email: " FontWeight="SemiBold" />
+                  <TextBox Text="john.doe@example.com" BorderThickness="0" Background="Transparent" />
+                </TextBlock>
+                <TextBlock Classes="info">
+                  <Run Text="Address: " FontWeight="SemiBold" />
+                  <TextBox Text="123 Main St, City, Country" BorderThickness="0" Background="Transparent" TextWrapping="Wrap" Width="400" />
+                </TextBlock>
+              </StackPanel>
+            </Border>
+          </StackPanel>
+
+          <StackPanel Grid.Row="2" 
+                      Orientation="Horizontal" 
+                      HorizontalAlignment="Right" 
+                      Spacing="10">
+            <Button Content="save changes"
+                    Classes="success"/>
+
+            <Button Content="Delete Patient"
+                    Classes="danger" />
+          </StackPanel>
+        </Grid>
+      </Border>
+    </Grid>
+  </DockPanel>
+</UserControl>
