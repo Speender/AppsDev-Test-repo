@@ -1,0 +1,131 @@
+<patient:Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:patient="clr-namespace:Patient"
+        x:Class="Patient.Views.PatientDetails"
+        Title="Patient Details"
+        Width="1200"
+        Height="800"
+        Background="#FFF5F9FC">
+
+  <DockPanel LastChildFill="True">
+
+    <Grid Margin="40,20,30,10" DockPanel.Dock="Top">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="Auto" />
+      </Grid.ColumnDefinitions>
+
+      <TextBlock Text="Patient Dashboard"
+                 FontSize="28"
+                 FontWeight="Bold"
+                 Foreground="#3e8dc0"
+                 VerticalAlignment="Center" />
+
+      <Button Content="Add Patient"
+              Command="{Binding AddPatientCommand}"
+              Width="140" Height="40"
+              Background="#4169e1" Foreground="White"
+              FontSize="14" FontWeight="SemiBold"
+              BorderThickness="0" CornerRadius="8"
+              HorizontalAlignment="Right" VerticalAlignment="Center"
+              Grid.Column="1" />
+    </Grid>
+
+    <Grid Margin="30,0,30,30">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="2.5*" />
+        <ColumnDefinition Width="3.5*" />
+      </Grid.ColumnDefinitions>
+
+      <!-- Patient List -->
+      <Border Background="White" BorderBrush="#DCE4EC" BorderThickness="1" CornerRadius="12" Padding="20" Margin="0,0,20,0">
+        <StackPanel Spacing="20">
+
+          <TextBlock Text="Patient List" FontSize="20" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center" />
+
+          <Border Background="#EFF3F7" CornerRadius="12" Padding="8" BorderBrush="#DCE4EC" BorderThickness="1">
+            <DockPanel VerticalAlignment="Center">
+              <TextBox Watermark="Search patient..." 
+                       Text="{Binding SearchQuery}"
+                       Background="Transparent" 
+                       BorderThickness="0" 
+                       FontSize="14"
+                       VerticalContentAlignment="Center"
+                       Margin="5,0" />
+            </DockPanel>
+          </Border>
+
+          <ItemsControl Items="{Binding Patients}">
+            <ItemsControl.ItemTemplate>
+              <DataTemplate>
+                <Border Background="#EFF3F7" CornerRadius="8" Padding="12" Margin="0,4">
+                  <StackPanel>
+                    <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="14" />
+                    <TextBlock Text="{Binding Condition}" FontSize="12" Foreground="#4A4A4A" />
+                  </StackPanel>
+                </Border>
+              </DataTemplate>
+            </ItemsControl.ItemTemplate>
+          </ItemsControl>
+
+        </StackPanel>
+      </Border>
+
+      <!-- Patient Details -->
+      <Border Grid.Column="1" Background="White" BorderBrush="#DCE4EC" BorderThickness="1" CornerRadius="12" Padding="20">
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+          </Grid.RowDefinitions>
+
+          <StackPanel Grid.Row="0" Margin="0,0,0,20">
+            <TextBlock Text="Personal Info" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,10" />
+            <Border Background="#F8FAFC" BorderBrush="#DCE4EC" BorderThickness="1" CornerRadius="8" Padding="12">
+              <StackPanel Orientation="Horizontal" Spacing="20">
+                <Ellipse Width="80" Height="80" Fill="#CED9E0" />
+                <StackPanel>
+                  <TextBlock Text="Name: {Binding SelectedPatient.Name}" FontSize="14" />
+                  <TextBlock Text="Age: {Binding SelectedPatient.Age}" FontSize="14" />
+                  <TextBlock Text="Address: {Binding SelectedPatient.Address}" FontSize="14" />
+                </StackPanel>
+                <TextBlock Text="Contact: {Binding SelectedPatient.Contact}" FontSize="14" VerticalAlignment="Top" />
+              </StackPanel>
+            </Border>
+          </StackPanel>
+
+          <StackPanel Grid.Row="1" Margin="0,0,0,20">
+            <TextBlock Text="Medical Info" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,10" />
+            <Border Background="#F8FAFC" BorderBrush="#DCE4EC" BorderThickness="1" CornerRadius="8" Padding="10">
+              <StackPanel Spacing="5">
+                <TextBlock Text="Condition: {Binding SelectedPatient.Condition}" FontSize="14" Foreground="#2c3e50" />
+                <TextBlock Text="Blood Pressure: {Binding SelectedPatient.BloodPressure}" FontSize="14" Foreground="#2c3e50" />
+                <TextBlock Text="Medication: {Binding SelectedPatient.Medication}" FontSize="14" Foreground="#2c3e50" />
+                <TextBlock Text="Doctor's Notes: {Binding SelectedPatient.Notes}" FontSize="14" Foreground="#2c3e50" TextWrapping="Wrap" />
+              </StackPanel>
+            </Border>
+          </StackPanel>
+
+          <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10">
+            <Button Content="Save Changes"
+                    Command="{Binding SaveChangesCommand}"
+                    Width="140" Height="40"
+                    Background="#28A745" Foreground="White"
+                    BorderThickness="0" CornerRadius="8" />
+
+            <Button Content="Delete Patient"
+                    Command="{Binding DeletePatientCommand}"
+                    Width="140" Height="40"
+                    Background="#860111" Foreground="White"
+                    BorderThickness="0" CornerRadius="8" />
+          </StackPanel>
+
+        </Grid>
+      </Border>
+
+    </Grid>
+
+  </DockPanel>
+
+</patient:Window>
